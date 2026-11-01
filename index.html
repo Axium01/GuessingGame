@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>Guessing Game</title>
+        <meta name="author" content="Milo Wearn">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            const rngValue = Math.floor(Math.random() * 10) + 1;
+            let userValue = prompt("Enter a number between 1 and 10.");
+            let userGuesses = 1; // set to 1 to prevent the first guess from not counting.
+
+            while (userValue != rngValue) {
+                if (userValue < rngValue) {
+                    userValue = prompt("Your guess was too low!\nGuess again.");
+                    userGuesses++;
+                } else if (userValue > rngValue) {
+                    userValue = prompt("Your guess was too high!\nGuess again.");
+                    userGuesses++;
+                } else {
+                    // doesn't count as a guess
+                    userValue = prompt("Your guess wasn't valid!\nGuess again (Use numbers only).");
+                }
+            }
+            alert("You guessed it in " + userGuesses + " guesses!\nThe number was " + rngValue + ".");
+        </script>
+    </body>
+</html>
